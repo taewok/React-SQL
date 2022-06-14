@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  },
+  "name": "sql-git",
+  "version": "1.0.0",
+  "main": "app.js",
+  "bin": {
+    "sql-git": "bin/www.js"
+  },
+  "scripts": {
+    "start": "nodemon ./bin/www.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taewok/React-SQL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taewok/React-SQL/issues"
+  },
+  "homepage": "https://github.com/taewok/React-SQL#readme",
+  "description": ""
+}
