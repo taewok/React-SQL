@@ -9,12 +9,16 @@ const login = () => {
     id: id.value,
     pwd: pwd.value,
   };
-  fetch("/login",{
-    method:"POST",
-    headers:{
-        "Content-Type":"application/json"
+  fetch("/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(req)
+    body: JSON.stringify(req),
+  }).then((res) => {
+    console.log(res.json());
+  }).then((res)=>{
+    console.log(res)
   })
 };
 
