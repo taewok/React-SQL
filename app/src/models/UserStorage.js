@@ -11,9 +11,9 @@ class UserStorage {
     }, {});
     return userInfo;
   }
-  
-  static getUsers(...fields) {
-    // const users = this.#users;
+  static #getUsers(data, isAll, fields) {
+    const users = JSON.parse(data);
+    if (isAll) return users;
     const newUsers = fields.reduce((newUsers, field) => {
       if (users.hasOwnProperty(field)) {
         //hasOwnProperty() 메소드는 객체가 특정 프로퍼티를 가지고 있는지를  나타내는 boolean 값을 반환한다.
@@ -24,21 +24,34 @@ class UserStorage {
     return newUsers;
   }
 
-  static getUsersInfo(id) {
+  static getUsers(isAll, ...fields) {
     return fs
       .readFile("./src/databases/users.json")
       .then((data) => {
-        return this.#getUserInfo;
+        return this.#getUsers(data, isAll, fields);
       })
       .catch(console.error);
   }
 
-  static save(userInfo) {
-    // const users = this.#users;
+  static getUsersInfo(id) {
+    return fs
+      .readFile("./src/databases/users.json")
+      .then((data) => {
+        return this.#getUserInfo(data, id);
+      })
+      .catch(console.error);
+  }
+
+  static async save(userInfo) {
+    const users = await this.getUsers(true);
+    if (users.id.includes(userInfo.id)) {
+      throw "이미 존재하는 아이디입니다.";
+    }
     users.id.push(userInfo.id);
-    users.name.push(userInfo.name);
-    users.pwd.push(userInfo.pwd);
-    return { success: true };
+      users.name.push(userInfo.name);
+      users.pwd.push(userInfo.pwd);
+      fs.writeFile("./src/databases/users.json", JSON.stringify(users));
+      return {success:true}
   }
 }
 
