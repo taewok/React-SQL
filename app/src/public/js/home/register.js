@@ -7,13 +7,17 @@ const confirmPwd = document.querySelector("#confirm-pwd");
 const btn = document.querySelector("#btn");
 
 const register = () => {
+  if (!id.value) {
+    return alert("아이디를 입력해주세요.")
+  }
+  if (pwd.value !== confirmPwd.value) {
+    return alert("비밀번호가 일치하지 않습니다.")
+  }
   const req = {
     id: id.value,
     name: name.value,
     pwd: pwd.value,
-    confirmPwd: confirmPwd.value,
   };
-   console.log(req)
   fetch("/register", {
     method: "POST",
     headers: {
@@ -24,7 +28,7 @@ const register = () => {
     .then((res) => res.json())
     .then((res) => {
       if (res.success) {
-        location.href = "/";
+        location.href = "/login";
       } else {
         alert(res.msg);
       }
