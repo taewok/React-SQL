@@ -6,6 +6,4 @@ router.get("/", (req, res) => {
   res.send("hi");
 });
 
-router.post("/putCustomerInfo",ctrl.post.postCustomerInfo);
-
 module.exports = router;

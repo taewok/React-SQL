@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+.slide {
+  width: 100%;
+  height: 300px;
+  background-color: red;
+}
+#slider_box {
+  width: 100%;
+  overflow: hidden;
+}
+#slider_container{
+    display: flex;
+    width: 400%;
+    left: -400%;
+}
+
+.prev_next_btn {
+  font-size: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+#prevBtn,
+#nextBtn {
+  cursor: pointer;
+}
+
+
