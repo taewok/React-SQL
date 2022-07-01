@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.list_div {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.list_box {
+  width: 700px;
+  height: 600px;
+  background-color: rgb(183, 250, 255);
+  padding-top: 30px;
+}
+.list_box>li{
+width: 95%;
+height: 50px;
+padding: 6px 8px;
+margin: auto;
+border: 2px solid black;
+box-sizing: border-box;
+display: flex;
+align-items: center;
+}
+
+.writing_btn{
+  position: absolute;
+  right: 0;
+}
+
+.list_num_box{
+  width: 700px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+.list_num_box>li{
+  margin-right: 10px;
+  cursor: pointer;
+}
